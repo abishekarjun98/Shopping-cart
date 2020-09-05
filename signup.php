@@ -22,13 +22,13 @@ if(isset($_POST["name"]) || isset($_POST["email"])|| isset($_POST["password"])||
 
 
 
-$sql="INSERT INTO Userinfo values(null,'$name','$email ','$password','$type')";
+$sql="INSERT INTO Userinfo (U_ID,Name,Email,Password,Type) values(null,'$name','$email ','$password','$type')";
 
 
 
 if ($conn->query($sql) === TRUE) {
-  echo "New record created successfully";
-  //header("Location:index.php");
+  //echo "New record created successfully";
+  header("Location:index.php");
 
 
 } else {

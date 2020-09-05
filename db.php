@@ -31,22 +31,13 @@ function give_unique($query)
 function get_user($U_id)
 {
 	$conn= mysqli_connect("localhost","chandler","chandler","Shopping");
- 	$q1="SELECT * FROM Userinfo WHERE ID='$U_id'";
+ 	$q1="SELECT * FROM Userinfo WHERE U_ID='$U_id'";
 	$res_user=mysqli_query($conn,$q1);
  	$user=mysqli_fetch_array($res_user, MYSQLI_ASSOC);
  	
  
  return $user;
 
-}
-
-function get_pic($id)
-{
-$conn= mysqli_connect("localhost","chandler","chandler","Shopping");
-$q3="SELECT * FROM pic_data WHERE Pic_id='$id'";
-$res3=mysqli_query($conn,$q3);
- $post_pic=mysqli_fetch_array($res3, MYSQLI_ASSOC);
- return $post_pic["Location"];
 }
 
 

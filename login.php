@@ -32,10 +32,17 @@ if(isset($_POST['name'])||isset($_POST["password"]))
    printf ("%s", $user[0]);
    $_SESSION["LoggedUID"] = $user[0]; 
     
-    echo "User logged in";
+  
     
-    header("Location: openpage.php");
+    if($user[5]==0)
+    {
 
+    header("Location: customer_home.php");
+}
+else if($user[5]==1)
+{
+header("Location: seller_home.php");
+}
 
   }
   else

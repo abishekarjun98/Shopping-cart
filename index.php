@@ -122,7 +122,7 @@ float: left;
 <div id="form1">
 
     <h3> SIGN-UP</h3>
-<form  method="POST" action="signup100.php">
+<form  method="POST" action="signup.php">
     
     <input type="text"  name="name" placeholder="Name"><br><br>
 
