@@ -26,22 +26,18 @@ $sql="INSERT INTO Userinfo (U_ID,Name,Email,Password,Type) values(null,'$name','
 
 
 
-if ($conn->query($sql) === TRUE) {
-  //echo "New record created successfully";
+if ($conn->query($sql) === TRUE) 
+{
+
+
   header("Location:index.php");
 
 
-} else {
+} 
+
+else {
   echo "Error: " . $sql . "<br>" . $conn->error;
 }
-
-$last_id = mysqli_insert_id($conn);
-
-//$tablename="accept".$last_id;
- 
- //echo $tablename;
-
-//$createaccepted="CREATE TABLE accept+ $last_id"
 
 
 

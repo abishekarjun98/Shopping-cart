@@ -145,7 +145,7 @@ float: left;
 
 <div id="form2">
 <h3>LOGIN</h3>
-<form  method="POST"  action="login100.php">
+<form  method="POST"  action="login.php">
     
     <input type="text"  name="name" placeholder="Name"><br><br>
     

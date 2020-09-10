@@ -43,7 +43,11 @@ width :40px;
     border-radius: 8px;
     padding-left: 60px;
     padding-top: 30px;
-    margin-bottom: 100px: 
+    margin-bottom: 300px: 
+  }
+  #quantity
+  {
+    width: 50px;
   }
   input[type="file"] {
     display: none;
@@ -74,13 +78,19 @@ margin-bottom: 20px;
         {
           height: 70px;
         }
-        .remove_offer
+ .remove_offer
   {
     width:20px;
     height: 20px;
   }
   .remove_offer:hover{
     cursor: pointer;
+  }
+  #s_btn
+  {
+   margin-left: 400px;
+    margin-top: -600px ;
+    width: 200px;
   }
   
 
@@ -98,7 +108,7 @@ margin-bottom: 20px;
       </li>
       &nbsp 
       <li class="nav-item">
-        <a class="nav-link" href="openpage.php">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="seller_home.php">Home <span class="sr-only">(current)</span></a>
       </li>
            <li class="nav-item">
         <a class="nav-link" href="friends.php">Search</a>
@@ -126,6 +136,9 @@ margin-bottom: 20px;
   <input type="text" name="description"class="box" id="descp" placeholder="Description">
 
     <br><br>
+  <label for="quantity">Quantity</label>
+  <input type="number" id="quantity" name="quantity" class="box" min="1">
+    <br><br>
     <input type="text" name="Price"class="box"  placeholder="Price">
     <br><br>
 
@@ -146,6 +159,7 @@ margin-bottom: 20px;
 <div class="offers">
   </div>
           
+          <button type="submit" class="btn btn-success" id="s_btn">Sell This Item</button>
           </form>
         
           
@@ -163,7 +177,7 @@ increment_offer();
 $(".offers").append([
     $('<div/>',{ "id": "offer_"+i }).append([
          
-         $('<input>',{ "name":"ing[]","placeholder":"enter offers","class":"box"}),
+         $('<input>',{ "name":"offers[]","placeholder":"enter offers","class":"box"}),
         $("<img>",{"src":"images/remove.png","class":"remove_offer"}),
 
 

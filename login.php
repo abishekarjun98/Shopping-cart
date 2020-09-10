@@ -34,12 +34,12 @@ if(isset($_POST['name'])||isset($_POST["password"]))
     
   
     
-    if($user[5]==0)
+    if($user[6]==0)
     {
 
     header("Location: customer_home.php");
 }
-else if($user[5]==1)
+else if($user[6]==1)
 {
 header("Location: seller_home.php");
 }
