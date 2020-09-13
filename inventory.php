@@ -23,6 +23,12 @@ $user=get_user($LoggedUID);
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
+
+   body
+    {
+      font-family: Calibri, sans-serif;
+      
+    }
   .everything
 {
   margin-left: 300px;
@@ -63,6 +69,11 @@ width :40px;
     margin-left: 30px;
 
   }
+   #count_box
+    {
+      width: 70px;
+
+    }
 
 </style>
 </head>
@@ -75,7 +86,7 @@ width :40px;
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
        <li class="nav-item">
-        <a class="nav-link" href="profile.php"> <img src="<?php echo $profile_pic_url ?>" class="profilepic"></a>
+        <a class="nav-link" href="seller_profile.php"> <img src="<?php echo $profile_pic_url ?>" class="profilepic"></a>
       </li>
       &nbsp 
       <li class="nav-item">
@@ -83,9 +94,6 @@ width :40px;
       </li>
       <li class="nav-item">
         <a class="nav-link" href="inventory.php">Inventory<span class="sr-only">(current)</span></a>
-      </li>
-           <li class="nav-item">
-        <a class="nav-link" href="friends.php">Search</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="index.php">Log-out</a>
@@ -98,6 +106,7 @@ width :40px;
 <div class="everything">
 <?php
 
+$i=0;
 $q3="SELECT * FROM inventory WHERE Sold_By='$LoggedUID'";
 
 $list=give($q3);
@@ -139,14 +148,14 @@ $pic_link=$pics_arr[0];
      <?php 
      }?>
 
- <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+ <!--<a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="sr-only">Previous</span>
   </a>
   <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
-  </a>
+  </a>-->
 
     
   </div>
@@ -175,13 +184,42 @@ echo nl2br($item["Category"]."\n");
 ?>
 
 </span>
-<br><br><br>
+
+
+<form action="inventory.php" method="post" id="form_up">
+          <input type="number" name="count" id="count_box" min="1" placeholder="<?php echo $item['Quantity']; ?>">
+          <input type="hidden" id="pId" name="pId" value="<?php echo $item['P_ID']; ?>">
+          <input type="submit" name="submit" value="update">
+        </form>
 
 </div>
 
  <?php
 
-} ?>
+} 
+
+
+if(isset($_POST["count"],$_POST["pId"]))
+ {
+
+  $new_count=$_POST["count"];
+  $id=$_POST["pId"];
+  
+  $update_count="UPDATE inventory SET Quantity='$new_count' WHERE P_ID='$id'";
+
+  if(mysqli_query($conn,$update_count))
+  {
+
+  }
+  else
+  {
+    echo "Error: " . $update_count . "<br>" . $conn->error;
+  }
+
+}
+
+
+?>
 
 
 </div>
@@ -190,5 +228,6 @@ echo nl2br($item["Category"]."\n");
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 </body>
+</html>
 
 

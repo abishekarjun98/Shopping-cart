@@ -7,8 +7,6 @@ require 'db.php';
 
 $LoggedUID= $_SESSION["LoggedUID"];
 
-
-
 $profile =get_user($LoggedUID);
 
 $profile_pic_url=$profile["profilepic"];
@@ -26,6 +24,11 @@ $profile_pic_url=$profile["profilepic"];
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
+
+  body
+  {
+    font-family: Calibri, sans-serif;
+  }
   
 .profilepic
 {
@@ -95,6 +98,8 @@ margin-bottom: 20px;
   
 
 </style>
+</head>
+<body>
 	<nav class="navbar navbar-expand-lg navbar-light " style="background-color: #ffad33">
   
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -110,8 +115,8 @@ margin-bottom: 20px;
       <li class="nav-item">
         <a class="nav-link" href="seller_home.php">Home <span class="sr-only">(current)</span></a>
       </li>
-           <li class="nav-item">
-        <a class="nav-link" href="friends.php">Search</a>
+       <li class="nav-item">
+        <a class="nav-link" href="inventory.php">Inventory<span class="sr-only"></span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="index.php">Log-out</a>
@@ -120,8 +125,7 @@ margin-bottom: 20px;
     </ul>
   </div>
 </nav>
-</head>
-<body>
+
 <form method="POST" action="addtodb.php" id="myform" enctype="multipart/form-data">
 
   <label class="custom-file-upload">

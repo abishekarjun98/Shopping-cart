@@ -11,7 +11,8 @@ $_SESSION["LoggedUID"] = 0;
 
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif&family=Signika:wght@300&family=Suez+One&display=swap" rel="stylesheet">
 	<style>
-        
+
+
       /*  #login{ 
         height: 30px;
         width: 80px;
@@ -32,7 +33,7 @@ $_SESSION["LoggedUID"] = 0;
             display: inline-block;
             width: 300px;
             min-height: 50px;
-            height: 300px;
+            height: 350px;
            font-family: 'Suez One', serif;
            padding-left: 50px;
            background-color: white;
@@ -56,6 +57,7 @@ $_SESSION["LoggedUID"] = 0;
             background-color: #FFFFFF;
             width: 250px;
             padding-left: 100px;
+            margin-top: -80px;
             
 
 
@@ -88,14 +90,14 @@ $_SESSION["LoggedUID"] = 0;
 
         .sbtn{
 
-background-color: #FF6816;
+background-color: #ffad33;
  color: white;
  height:40px;
  width:80px;
  border-radius: 8px;
  font-family: 'Suez One', serif;
  margin-left: 70px;   
- border-style: solid; 
+ border-style: none; 
         }
     .sbtn:hover
     {
@@ -115,7 +117,7 @@ float: left;
 </head>
 <body>
 <div class="img1">
-<img border="0"  src="logo3.JPG" width="350" height="350">
+<img border="0"  src="images/logo.JPG" width="350" height="350">
 </div>
 
 <div class="forms">
