@@ -86,6 +86,26 @@ $profile_pic_url=$profile["profilepic"];
     margin-left: 30px;
   }
 
+
+  .boxy{
+
+    height:auto;
+    width:350px;
+    border-radius: 6px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    margin-bottom: 25px;   
+    margin-left: 520px;
+    margin-top: 20px;
+    float: left;
+    padding-left: 20px;
+    font-size: 20px;
+  }
+
+#txt
+{
+  margin-left: 590px;
+  margin-top: 30px;
+}
 </style>
 
 
@@ -166,18 +186,25 @@ $profile_pic_url=$profile["profilepic"];
   </div>
 </div>
 
+
+<h2 id="txt">Delivery History</h2>
 <?php
 
 
-$q_orders="SELECT * FROM orders";
+$q_orders="SELECT * FROM orders ORDER BY Time DESC";
 $orders=give($q_orders);
 
 $months= array();
 $cats =array();
 
+
+
 foreach ($orders as $order) {
 
   $month_order=substr($order["Time"],0,2);
+
+  $order_from=$order["U_ID"];
+  $order_user=get_user($order_from);
 
 
   $product_id=$order["P_ID"];
@@ -190,12 +217,24 @@ foreach ($orders as $order) {
     array_push($months, $order["Time"]);
     array_push($cats,$prod_detail["Category"]);
 
+    ?>
+    <div class="boxy">
+      <?php
+      $countflag=1;
+
+      echo "<h3>Customer - " . $order_user["Name"]."</h3>";
+      echo $prod_detail["Name"]."      -     ".$order["Quantities"];
+      echo nl2br("\n");
+      echo nl2br("Delivered to \n".$order_user["Address"]);
+      echo nl2br("\n".$order["Time"]);
+      ?>
+    </div>
+
+    <?php
   }
 
   
-}
-
-?>
+} ?>
 
 <script>
   var month_objects = {'09' : 0, '10' : 5,'11':5 };
